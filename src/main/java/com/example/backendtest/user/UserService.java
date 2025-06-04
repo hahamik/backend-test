@@ -19,4 +19,11 @@ public class UserService {
         User userPS = userRepository.findById(id);
         return new UserResponse.DTO(userPS);
     }
+
+    @Transactional
+    public UserResponse.DTO update(Long id, UserRequest.UpdateDTO reqDTO) {
+        User userPS = userRepository.findById(id);
+        userPS.update(reqDTO.getName());
+        return new UserResponse.DTO(userPS);
+    }
 }
