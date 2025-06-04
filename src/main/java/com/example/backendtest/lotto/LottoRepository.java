@@ -8,4 +8,8 @@ import org.springframework.stereotype.Repository;
 @RequiredArgsConstructor
 public class LottoRepository {
     private final EntityManager em;
+
+    public void save(Lotto lotto) {
+        em.persist(lotto);
+    }
 }
