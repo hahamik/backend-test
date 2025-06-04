@@ -16,13 +16,15 @@ public class UserService {
     }
 
     public UserResponse.DTO find(Long id) {
-        User userPS = userRepository.findById(id);
+        User userPS = userRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("해당 유저를 찾을 수 없습니다"));
         return new UserResponse.DTO(userPS);
     }
 
     @Transactional
     public UserResponse.DTO update(Long id, UserRequest.UpdateDTO reqDTO) {
-        User userPS = userRepository.findById(id);
+        User userPS = userRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("수정할 유저를 찾을 수 없습니다"));
         userPS.update(reqDTO.getName());
         return new UserResponse.DTO(userPS);
     }
