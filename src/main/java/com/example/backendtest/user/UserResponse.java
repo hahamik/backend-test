@@ -12,4 +12,15 @@ public class UserResponse {
             this.id = user.getId();
         }
     }
+
+    @Data
+    public static class DTO {
+        private Long id;
+        private String name;
+
+        public DTO(User user) {
+            this.id = user.getId();
+            this.name = user.getName();
+        }
+    }
 }

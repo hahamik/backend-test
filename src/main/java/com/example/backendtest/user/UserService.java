@@ -14,4 +14,9 @@ public class UserService {
         User userPS = userRepository.save(reqDTO.toEntity());
         return new UserResponse.SaveDTO(userPS);
     }
+
+    public UserResponse.DTO find(Long id) {
+        User userPS = userRepository.findById(id);
+        return new UserResponse.DTO(userPS);
+    }
 }
