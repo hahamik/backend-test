@@ -2,6 +2,7 @@ package com.example.backendtest.lotto.winner;
 
 import com.example.backendtest.lotto.Lotto;
 import jakarta.persistence.*;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -20,4 +21,10 @@ public class Winner {
     private Lotto lotto;
 
     private int rank;
+
+    @Builder
+    public Winner(Lotto lotto, int rank) {
+        this.lotto = lotto;
+        this.rank = rank;
+    }
 }

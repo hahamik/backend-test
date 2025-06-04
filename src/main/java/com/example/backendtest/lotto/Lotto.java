@@ -33,4 +33,15 @@ public class Lotto {
         this.num5 = num5;
         this.num6 = num6;
     }
+
+    public int countMatches(List<Integer> winNums) {
+        List<Integer> myNums = List.of(num1, num2, num3, num4, num5, num6);
+        int count = 0;
+        for (Integer num : myNums) {
+            if (winNums.contains(num)) {
+                count++;
+            }
+        }
+        return count;
+    }
 }
